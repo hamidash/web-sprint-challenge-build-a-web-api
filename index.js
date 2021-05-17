@@ -10,5 +10,23 @@ your file is getting way too big, bring a Router and make it thin, don't worry, 
 there is no data on that route, just write some code, you'll sort it out… don't worry, just hack it…
 I need this code, but don't know where, perhaps should make some middleware, don't worry, just hack it
 
-Pull your server into this file and start it!
+Pull your server into this file and start it! 
+
+:))))))
 */
+const express = require('express');
+
+const app = express()
+
+const server = require('./api/server')
+
+app.use('/api', server);
+
+app.get('/', (req, res)=>{
+    res.send(`<h1> Welcome!!!</h1>
+    <h3> pls call /api endpoints to get data </h3>`
+    )
+})
+app.listen(5000, ()=> {
+    console.log("Server is running on port 5000")
+})
