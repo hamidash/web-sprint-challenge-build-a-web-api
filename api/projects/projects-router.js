@@ -13,7 +13,12 @@ router.get("/", (req, res) => {
   projects
     .get()
     .then((results) => {
-      res.status(200).json(results);
+      if(results.length === 0) {
+        res.status(200).json([]); 
+      }
+      else{
+        res.status(200).json(results);
+      } 
     })
     .catch((err) => {
       res.status(500).json({ message: "Can't retrieve the projects" });
