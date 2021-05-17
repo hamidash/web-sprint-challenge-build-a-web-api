@@ -3,7 +3,6 @@ const projects = require('../projects/projects-model');
 function validateProjectId(req, res, next){
 
  const {id} = req.params;
- console.log(id);
 
  projects.get(id)
  .then(result => {
@@ -20,6 +19,6 @@ function validateProjectId(req, res, next){
  })
 }
 
-module.exports = {
-    validateProjectId
-}
+
+
+module.exports = validateProjectId;
