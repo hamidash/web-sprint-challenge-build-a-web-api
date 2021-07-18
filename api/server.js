@@ -11,6 +11,7 @@ server.use(express.json());
 server.use("/projects", projectsRouter);
 server.use("/actions", actionsRouter);
 
+//Setup server
 server.get("/", (req, res) => {
   res.json({ message: "hello from express" });
 });
