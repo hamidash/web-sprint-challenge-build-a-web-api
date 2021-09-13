@@ -18,19 +18,11 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 
 ### Task 1: Project Set Up
 
-- [ ] Fork and clone this repository. **If you are repeating this Course, delete your old fork from Github and re-fork and re-clone.**
-- [ ] Create a new branch: `git checkout -b <firstName-lastName>`.
-- [ ] Implement the project on your newly created branch, committing changes regularly.
-- [ ] Push commits: `git push origin <firstName-lastName>`.
-- [ ] **RUN** `npm install` to install your dependencies.
+- [ ] Run `npm install` to install your dependencies.
+- [ ] Run tests locally executing `npm test`.
+- [ ] Reset the database to its original state executing `npm run resetdb`.
 
-### Task 2: CodeGrade Setup
-
-- [ ] Follow [instructions](https://www.notion.so/lambdaschool/Submitting-an-assignment-via-Code-Grade-A-Step-by-Step-Walkthrough-07bd65f5f8364e709ecb5064735ce374) to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>` branch.
-- [ ] Make a commit and push it to Github.
-- [ ] Check to see that Codegrade has accepted your git submission.
-
-### Task 3: Project Requirements (MVP)
+### Task 2: Project Requirements (MVP)
 
 Your finished project must include all of the following requirements:
 
@@ -43,7 +35,11 @@ A _"resetdb"_ script exists that allows you to reset the database to its origina
 - [ ] Write an _npm script_ named _"server"_ that uses `nodemon` to run the API server.
 - [ ] Install _nodemon_ as a development dependency that would not be used in production.
 
-#### Build an API
+#### Environment Variables
+
+- [ ] Bring the port number from the `process.env` variable, falling back to `5000` if `process.env.PORT` is undefined **!!!**
+
+#### Endpoints
 
 Inside `api/projects/projects-router.js` build the following endpoints:
 
@@ -86,6 +82,10 @@ Inside `api/actions/actions-router.js` build endpoints for performing CRUD opera
   - Returns no response body.
   - If there is no action with the given `id` it responds with a status code 404.
 
+#### Middleware functions
+
+- [ ] Write at least two middleware functions for this API, and consume them in the proper places of your code.
+
 ### Database Schemas
 
 The description of the structure and extra information about each _resource_ stored in the included database (`./data/lambda.db3`) is listed below.
@@ -124,34 +124,22 @@ The `projects-model.js` includes an extra method called `getProjectActions()` th
 
 We have provided test data for all the resources.
 
-**Notes:**
+**Important Notes:**
 
-- Run tests locally executing `npm test`.
+- Do not make changes to your `package.json` except to add **additional** dependencies and scripts. Do not update existing packages.
+- Your app must be able to run in Node v.12. Do not use newer features of Node (e.g.: optional chaining and nullish coalescing NOT supported).
 - Use an HTTP client like `HTTPie`, `Postman` or `Insomnia` to manually test the API's endpoints.
 - Use Express Routers to organize your endpoints.
-- The use of middlewares to avoid repetitive code is highly recommended.
-- You are welcome to create additional files for middlewares, but **do not move or rename existing files** or folders.
-- Do not make changes to your `package.json` except to add additional dependencies and scripts.
+- Even though you are only required to write two middleware functions, it is advised that you leverage middlewares as much as possible.
+- You are welcome to create additional files, but **do not move or rename existing files** or folders.
 - In your solution, it is essential that you follow best practices and produce clean and professional results.
 - Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work.
-- It is better to submit a challenge that meets MVP than one that attempts too much and does not.
-
-### Task 4: Stretch Goals
-
-After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
-
-**IMPORTANT:** Do not break any MPV functionality by adding "stretch" code! Keep an eye on those tests!
-
-- [ ] Deploy the API to Heroku.
-- [ ] Configure the API to support environment variables.
-- [ ] Use middleware for validation of incoming data.
 
 ## Submission format
 
-- [ ] Submit via Codegrade by pushing commits to your `<firstName-lastName>` branch on Github.
-- [ ] Create a pull-request to merge `<firstName-lastName>` branch into main.
-- [ ] Check Codegrade for automated feedback.
-- [ ] Check Codegrade on Monday following the Sprint Challenge for reviewer feedback.
+- [ ] Submit via Codegrade by pushing commits to your `<firstName-lastName>` branch.
+- [ ] Check Codegrade before the deadline to compare its results against your local tests.
+- [ ] Check Codegrade on the days following the Sprint Challenge for reviewer feedback.
 - [ ] New commits will be evaluated by Codegrade if pushed _before_ the sprint challenge deadline.
 
 ## Interview Questions

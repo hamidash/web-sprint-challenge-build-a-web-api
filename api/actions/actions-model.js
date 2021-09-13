@@ -1,3 +1,4 @@
+// DO NOT MAKE CHANGES TO THIS FILE
 const db = require('../../data/dbConfig.js');
 const mappers = require('../../data/helpers/mappers');
 
@@ -31,7 +32,7 @@ function get(id) {
 
 function insert(action) {
   return db('actions')
-    .insert(action, 'id')
+    .insert(action)
     .then(([id]) => get(id));
 }
 
